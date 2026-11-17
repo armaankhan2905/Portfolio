@@ -1,4 +1,5 @@
 import { categories, projects, projectsIn } from './projects.js';
+import { playHomeMotion, playLaptopMotion, closeLaptop } from './motion.js';
 
 const $ = selector => document.querySelector(selector);
 const home = $('#home-view');
@@ -28,6 +29,8 @@ function screenChange() {
     if (recycle.open) recycle.close();
     home.hidden = showProjects;
     desktop.hidden = !showProjects;
+    if (showProjects) playLaptopMotion();
+    else playHomeMotion();
     document.title = showProjects ? 'Projects | Armaan Khan' : 'Armaan Khan — Portfolio';
     if (previousPage !== undefined || showProjects) {
       const heading = $(showProjects ? '#projects-heading' : '#hero-name');
@@ -42,10 +45,15 @@ function screenChange() {
     update();
   }
 }
-function navigate(hash) {
+let navigating = false;
+async function navigate(hash) {
+  if (navigating) return;
   if (location.hash === hash) return;
+  navigating = true;
+  if (hash === '#home') await closeLaptop();
   history.pushState(null, '', hash);
   screenChange();
+  navigating = false;
 }
 $('#open-projects').addEventListener('click', () => {
   lastDesktopScroll = 0;
@@ -162,12 +170,3 @@ function showTime() {
 showTime();
 setInterval(showTime, 1000);
 
-document.addEventListener('pointerdown', event => {
-  if (event.button !== 0 || event.pointerType === 'touch' || reducedMotion.matches || document.querySelector('dialog[open]')) return;
-  const spark = element('span', '', 'cursor-spark');
-  spark.setAttribute('aria-hidden', 'true');
-  spark.style.left = event.clientX + 'px';
-  spark.style.top = event.clientY + 'px';
-  document.body.append(spark);
-  spark.addEventListener('animationend', () => spark.remove(), { once: true });
-});
