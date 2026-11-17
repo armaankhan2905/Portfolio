@@ -102,8 +102,11 @@ h1, h2 { font-family: var(--heading); font-weight: 800; line-height: 1.13; lette
 mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .credentials { margin-top: 96px; }
 .hand-label { font: 700 21px/1.2 var(--hand); color: #d2f4e4; letter-spacing: .005em; }
-.notes { display: grid; list-style: none; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 36px 24px; padding: 38px 0 0; }
-.notes li { --tilt: 2deg; --note: #dbeafe; min-width: 0; }
+/* Three notes on the first row; LeetCode and GeeksforGeeks centered beneath them. */
+.notes { display: grid; list-style: none; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 36px 24px; padding: 38px 0 0; }
+.notes li { --tilt: 2deg; --note: #dbeafe; min-width: 0; grid-column: span 2; }
+.notes li:nth-child(4) { grid-column: 2 / span 2; }
+.notes li:nth-child(5) { grid-column: 4 / span 2; }
 .notes li:nth-child(2) { --tilt: -2.2deg; --note: #fce4f2; }
 .notes li:nth-child(3) { --tilt: -2deg; --note: #fff7bf; }
 .notes li:nth-child(4) { --tilt: 2.3deg; --note: #ffecd4; }
@@ -246,6 +249,8 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
   .notebook p { font-size: 23px; line-height: 31px; }
   .credentials, .resume { margin-top: 62px; }
   .notes { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 25px 13px; padding-top: 30px; }
+  .notes li, .notes li:nth-child(4) { grid-column: auto; }
+  .notes li:nth-child(5) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 6.5px); }
   .notes a { min-height: 143px; padding: 14px 11px 12px; }
   .notes strong { padding-top: 22px; font-size: 20px; }
   .notes .out { right: 11px; top: 17px; }
