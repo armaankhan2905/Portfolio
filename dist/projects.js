@@ -71,6 +71,7 @@ export const projects = [
     meta: 'Graviton 2026 • Team The Cupids',
     color: '#ff8295',
     repo: github + '/PhishShield',
+    live: 'https://phishshield-1jrz.onrender.com/',
     tagline: 'Explainable phishing and scam detection for messages, emails, links, and Gmail.',
     description: 'PhishShield combines domain and sender checks, detection rules, and machine-learning models to produce a risk score, verdict, and evidence for each finding. In Team The Cupids, I built the rules, domain and brand checks, sender checks, and evidence-gated scoring.',
     highlights: [
