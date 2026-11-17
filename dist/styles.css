@@ -134,6 +134,7 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
 .project-title { grid-column: 1; font: 800 2.5rem/1.15 var(--heading); letter-spacing: -.045em; margin: 4px 0 12px; }
 .pill { grid-area: 1 / 2 / 3 / 3; align-self: start; margin-top: 10px; border: 1px solid #79dfff40; border-radius: 50px; background: #71dfff23; color: #6ed7ff; font-weight: 700; padding: 11px 20px; }
 .pill span { margin-left: 8px; }
+.pill #project-count { margin-left: 0; }
 .project-intro { grid-column: 1/-1; color: #e0f8f2; font-weight: 500; }
 .project-preview { grid-column: 1/-1; display: flex; flex-wrap: wrap; gap: 7px 20px; margin-top: 14px; color: #e0f8f2; font-size: .88rem; font-weight: 600; }
 .project-preview span::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; background: var(--dot); }

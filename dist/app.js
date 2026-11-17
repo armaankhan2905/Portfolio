@@ -64,6 +64,7 @@ window.addEventListener('popstate', screenChange);
 window.addEventListener('hashchange', screenChange);
 screenChange();
 
+$('#project-count').textContent = projects.length;
 for (const project of projects) {
   const dot = element('span', project.name);
   dot.style.setProperty('--dot', project.color);

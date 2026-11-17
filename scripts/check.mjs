@@ -3,10 +3,10 @@ import { readFile, stat } from 'node:fs/promises';
 import { projects, categories, projectsIn } from '../dist/projects.js';
 
 const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-assert.equal(projects.length, 4);
+assert.equal(projects.length, 7);
 assert.equal(new Set(projects.map(project => project.name)).size, projects.length);
 assert.equal(projectsIn('All').length, projects.length);
-assert.deepEqual(categories.slice(1).map(category => projectsIn(category).length), [1, 1, 2]);
+assert.deepEqual(categories.slice(1).map(category => projectsIn(category).length), [1, 2, 4]);
 assert.ok(projects.some(project => project.live) && projects.some(project => project.download));
 assert.ok(projects.every(project => project.repo.startsWith('https://github.com/armaankhan2905/')));
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(([, id]) => id);
