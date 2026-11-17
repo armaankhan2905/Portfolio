@@ -124,7 +124,7 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
 .notes strong { margin-top: auto; padding-top: 34px; font: 700 23px/1.2 var(--hand); }
 .handle { margin-top: 4px; font: 700 20px/1.15 var(--script); color: #344155; overflow-wrap: anywhere; }
 .project-launch {
-  display: grid; grid-template-columns: 1fr auto; text-align: left; width: 100%; padding: 38px;
+  display: grid; grid-template-columns: 1fr auto; text-align: left; width: 100%; padding: 38px; margin-top: 48px;
   border: 1px solid #989cf44a; border-radius: 20px;
   background:
     repeating-linear-gradient(90deg,transparent 0 19px,#b0d6ff09 19px 20px),
@@ -255,7 +255,7 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
   .notes strong { padding-top: 22px; font-size: 20px; }
   .notes .out { right: 11px; top: 17px; }
   .handle { font-size: 17px; }
-  .project-launch { padding: 23px 17px; margin-top: 8px; grid-template-columns: 1fr; }
+  .project-launch { padding: 23px 17px; margin-top: 36px; grid-template-columns: 1fr; }
   .project-title { font-size: 2.15rem; }
   .pill { grid-area: auto; justify-self: start; padding: 7px 11px; margin: 0 0 12px; font-size: .83rem; }
   .resume { padding-bottom: 60px; }
