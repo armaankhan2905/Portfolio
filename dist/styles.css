@@ -102,15 +102,11 @@ h1, h2 { font-family: var(--heading); font-weight: 800; line-height: 1.13; lette
 mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .credentials { margin-top: 96px; }
 .hand-label { font: 700 21px/1.2 var(--hand); color: #d2f4e4; letter-spacing: .005em; }
-/* Three notes on the first row; LeetCode and GeeksforGeeks centered beneath them. */
-.notes { display: grid; list-style: none; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 36px 24px; padding: 38px 0 0; }
-.notes li { --tilt: 2deg; --note: #dbeafe; min-width: 0; grid-column: span 2; }
-.notes li:nth-child(4) { grid-column: 2 / span 2; }
-.notes li:nth-child(5) { grid-column: 4 / span 2; }
-.notes li:nth-child(2) { --tilt: -2.2deg; --note: #fce4f2; }
-.notes li:nth-child(3) { --tilt: -2deg; --note: #fff7bf; }
-.notes li:nth-child(4) { --tilt: 2.3deg; --note: #ffecd4; }
-.notes li:nth-child(5) { --tilt: -1.6deg; --note: #ccf8e3; }
+/* LinkedIn, GitHub and LeetCode on one row. */
+.notes { display: grid; list-style: none; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 36px 24px; padding: 38px 0 0; }
+.notes li { --tilt: 2deg; --note: #dbeafe; min-width: 0; }
+.notes li:nth-child(2) { --tilt: -2deg; --note: #fff7bf; }
+.notes li:nth-child(3) { --tilt: 2.3deg; --note: #ffecd4; }
 .notes a {
   position: relative; display: flex; flex-direction: column; min-height: 187px; color: var(--ink);
   transform: rotate(var(--tilt)); border-radius: 4px; background: var(--note);
@@ -150,10 +146,35 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
 .button:hover { filter: brightness(1.12); }
 .primary { color: #031c2e; background: var(--blue); }
 .secondary { color: white; background: #09261c; }
-.resume-sheet { position: relative; width: min(100%,674px); margin: 51px auto 0; transform: rotate(.65deg); border-radius: 5px; background: white; box-shadow: 0 15px 30px #001e1680; }
-.resume-sheet img { display: block; width: 100%; height: auto; border-radius: inherit; }
-.resume-sheet::before, .resume-sheet::after { content: ""; position: absolute; pointer-events: none; width: 14px; height: 57px; border: 3px solid #9eabb5; border-radius: 12px; left: 46px; top: -16px; transform: rotate(4deg); box-shadow: 2px 3px 4px #24384980, inset 1px 0 2px white; }
-.resume-sheet::after { height: 42px; width: 9px; left: 49px; top: -3px; border-color: #d2dce5 #788794 #667381 #dfe4e8; }
+/* Résumé scroll: rolled up until clicked, then the parchment unrolls. */
+.scroll { --cap: 24px; --wood: linear-gradient(180deg,#a4693b 0%,#7a4524 28%,#55301a 62%,#2f1a0d 100%); position: relative; width: min(100%,722px); margin: 58px auto 0; padding-inline: var(--cap); }
+.js .scroll:not(.is-open) { cursor: pointer; }
+.scroll-rod { position: relative; z-index: 2; height: 22px; margin-inline: calc(var(--cap) * -1 + 2px); border-radius: 11px; background: var(--wood); box-shadow: 0 7px 12px #001e1673, inset 0 2px 1px #ffffff2e; }
+.scroll-rod::before, .scroll-rod::after { content: ""; position: absolute; top: 50%; width: 26px; height: 26px; border-radius: 50%; translate: 0 -50%; background: radial-gradient(circle at 35% 30%,#fff2b8 0 12%,#e7bf55 38%,#a87418 72%,#6a4507 100%); box-shadow: 0 3px 5px #001e1680; }
+.scroll-rod::before { left: -6px; }
+.scroll-rod::after { right: -6px; }
+.scroll-roll { position: absolute; z-index: 1; left: calc(var(--cap) + 20px); right: calc(var(--cap) + 20px); top: 50%; height: 30px; translate: 0 -50%; border-radius: 14px; background: linear-gradient(180deg,#c9ad72 0%,#f4e6c2 22%,#fff8e4 45%,#ead6a3 78%,#a98a4f 100%); box-shadow: inset 6px 0 6px -4px #8a6a2f99, inset -6px 0 6px -4px #8a6a2f99, 0 4px 7px #001e1659; transition: height .9s cubic-bezier(.65,0,.25,1); }
+.scroll-rod-top .scroll-roll { height: 26px; }
+.js .scroll:not(.is-open) .scroll-rod-bottom .scroll-roll { height: 40px; }
+.scroll-rod-bottom { margin-top: -6px; }
+.scroll-paper { position: relative; z-index: 1; display: grid; grid-template-rows: 1fr; margin: -6px 22px 0; transition: grid-template-rows 1.15s cubic-bezier(.65,0,.25,1); }
+.js .scroll:not(.is-open) .scroll-paper { grid-template-rows: 0fr; }
+.scroll-sheet { min-height: 0; overflow: hidden; padding: 0 18px; background:
+  radial-gradient(ellipse 60% 40% at 25% 15%,#fffaea 0,transparent 70%),
+  radial-gradient(ellipse 55% 35% at 80% 85%,#ecd9a6aa 0,transparent 70%),
+  linear-gradient(90deg,#e2cc96 0,#f7ecd0 5%,#fdf6e3 50%,#f7ecd0 95%,#e2cc96 100%);
+  box-shadow: inset 0 14px 14px -12px #7a5a2280, inset 0 -14px 14px -12px #7a5a2280; }
+.scroll-sheet img { display: block; width: 100%; height: auto; margin-block: 26px; mix-blend-mode: multiply; }
+.scroll-toggle { position: absolute; z-index: 3; left: 50%; top: calc(100% + 6px); translate: -50% 0; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
+.scroll-tag { position: relative; display: inline-block; margin-top: 20px; padding: 6px 16px 5px; border-radius: 4px; background: #fff7bf; color: var(--ink); font: 700 22px/1.2 var(--script); white-space: nowrap; rotate: -2.5deg; box-shadow: 0 6px 12px #00271b70; transition: rotate .25s, translate .25s; }
+.scroll-tag::before { content: ""; position: absolute; left: 50%; bottom: 100%; width: 2px; height: 22px; translate: -50% 0; background: repeating-linear-gradient(180deg,#d9c79a 0 4px,#b49a63 4px 6px); }
+.scroll-toggle:hover .scroll-tag, .scroll-toggle:focus-visible .scroll-tag { rotate: 0deg; translate: 0 2px; }
+.scroll-toggle:focus-visible { outline: none; }
+.scroll-toggle:focus-visible .scroll-tag { outline: 3px solid var(--blue); outline-offset: 3px; }
+.scroll.is-open .scroll-tag { background: #dbeafe; }
+.scroll:not(.is-open) .scroll-rod-bottom { animation: scroll-bob 2.6s ease-in-out infinite; }
+html:not(.js) .scroll-toggle { display: none; }
+@keyframes scroll-bob { 50% { translate: 0 3px; } }
 .footer { min-height: 76px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; align-items: end; padding-bottom: 20px; font-size: .84rem; color: #afe8ca; }
 
 #projects-view { padding: 62px 0 182px; }
@@ -249,8 +270,7 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
   .notebook p { font-size: 23px; line-height: 31px; }
   .credentials, .resume { margin-top: 62px; }
   .notes { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 25px 13px; padding-top: 30px; }
-  .notes li, .notes li:nth-child(4) { grid-column: auto; }
-  .notes li:nth-child(5) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 6.5px); }
+  .notes li:nth-child(3) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 6.5px); }
   .notes a { min-height: 143px; padding: 14px 11px 12px; }
   .notes strong { padding-top: 22px; font-size: 20px; }
   .notes .out { right: 11px; top: 17px; }
@@ -258,8 +278,11 @@ mark { background: #ffe567; color: inherit; padding: 0 .29em .06em; border-radiu
   .project-launch { padding: 23px 17px; margin-top: 36px; grid-template-columns: 1fr; }
   .project-title { font-size: 2.15rem; }
   .pill { grid-area: auto; justify-self: start; padding: 7px 11px; margin: 0 0 12px; font-size: .83rem; }
-  .resume { padding-bottom: 60px; }
-  .resume-sheet { margin-top: 37px; }
+  .resume { padding-bottom: 100px; }
+  .scroll { --cap: 18px; margin-top: 44px; }
+  .scroll-sheet { padding-inline: 8px; }
+  .scroll-sheet img { margin-block: 16px; }
+  .scroll-tag { font-size: 20px; }
   #projects-view { padding: 39px 0 90px; }
   .desktop-heading { flex-wrap: wrap; margin-bottom: 18px; }
   .workstation { font-size: .63rem; }

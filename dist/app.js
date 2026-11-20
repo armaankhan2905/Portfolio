@@ -171,3 +171,24 @@ function showTime() {
 showTime();
 setInterval(showTime, 1000);
 
+
+const resumeScroll = $('#resume-scroll');
+const scrollToggle = $('#scroll-toggle');
+const scrollImage = resumeScroll.querySelector('img');
+function setScroll(open) {
+  resumeScroll.classList.toggle('is-open', open);
+  scrollToggle.setAttribute('aria-expanded', String(open));
+  scrollToggle.firstElementChild.textContent = open ? 'Roll it back up ↑' : 'Click to unroll ↓';
+  if (!open) resumeScroll.scrollIntoView({ block: 'center', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+}
+// Start loading the résumé image as soon as someone shows interest, so it is ready when the paper unrolls.
+const preloadResume = () => { scrollImage.loading = 'eager'; };
+resumeScroll.addEventListener('pointerenter', preloadResume, { once: true });
+scrollToggle.addEventListener('focus', preloadResume, { once: true });
+scrollToggle.addEventListener('click', event => {
+  event.stopPropagation();
+  setScroll(!resumeScroll.classList.contains('is-open'));
+});
+resumeScroll.addEventListener('click', () => {
+  if (!resumeScroll.classList.contains('is-open')) setScroll(true);
+});
