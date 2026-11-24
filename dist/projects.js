@@ -36,6 +36,23 @@ export const projects = [
     tech: ['HTML', 'CSS', 'JavaScript', 'RAG (planned)', 'OCR (planned)'],
   },
   {
+    name: 'TextTrace',
+    category: 'Full-Stack',
+    meta: 'Java • Plagiarism Detection',
+    color: '#ffd166',
+    repo: github + '/plagiarism-detector-java',
+    live: 'https://texttrace-two.vercel.app',
+    tagline: 'A plagiarism checker that compares documents by word frequency, shared words, and copied phrases.',
+    description: 'TextTrace reads two to ten text documents, normalizes them, and compares every pair. A plain-JDK Java backend with no external libraries does all of the analysis and serves a web frontend for uploading documents, viewing results, and downloading reports.',
+    highlights: [
+      'Scores each pair with cosine similarity, Jaccard similarity, and phrase matching, then gives an overall verdict from HIGH to ORIGINAL.',
+      'Shows a similarity matrix, common words and phrases, and a side-by-side view with copied text highlighted.',
+      'Saves comparison reports as TXT and CSV files and keeps a history of past comparisons in the browser.',
+      'Runs a multithreaded HTTP server with a thread pool and is covered by a suite of automated tests.',
+    ],
+    tech: ['Java', 'Collections & Streams', 'Multithreading', 'HTTP Server', 'HTML', 'CSS', 'JavaScript'],
+  },
+  {
     name: 'SkyVengers',
     category: 'Full-Stack',
     meta: 'WeatherGuard AI • SIH 2026',
