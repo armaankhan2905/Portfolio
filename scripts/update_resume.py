@@ -48,7 +48,7 @@ pages = [
 ("heading", "AgentGuard | AI firewall for autonomous agents"),
 ("bullet", "Routes every agent tool call through a default-deny firewall with audited policies, and scans tool output for prompt injection before it reaches the model."),
 ("tech", "Python, FastAPI, SQLite, React | github.com/armaankhan2905/AgentGuard"),
-("heading", "PrivacyLens | PECathon 2026 | Local PII redaction for AI agents"),
+("heading", "PrivacyLens | PECathon 2026, Top 40 Teams | Local PII redaction for AI agents"),
 ("bullet", "Built the regex and Luhn detection layer, the sanitization pipeline and the demo server, running the team's BERT NER model alongside the patterns."),
 ("tech", "Python, PyTorch, Transformers | privacylens-demo.onrender.com | github.com/PECathon-2026/PF-NH5DR2"),
 ("heading", "TRUSTGRID | NexHack 2.0"),
