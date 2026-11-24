@@ -53,6 +53,23 @@ export const projects = [
     tech: ['Java', 'Collections & Streams', 'Multithreading', 'HTTP Server', 'HTML', 'CSS', 'JavaScript'],
   },
   {
+    name: 'PrivacyLens',
+    category: 'AI & Compliance',
+    meta: 'PECathon 2026 • Local PII Protection',
+    color: '#5fd4c4',
+    repo: 'https://github.com/PECathon-2026/PF-NH5DR2',
+    live: 'https://privacylens-demo.onrender.com/',
+    tagline: 'A privacy layer that finds and redacts sensitive data locally before an AI agent can see it.',
+    description: 'PrivacyLens lets an AI agent work with webpages and forms while personal information stays on the machine. Text passes through local detection and sanitization, so the agent reasons only over placeholders. At PECathon 2026, I built the detection layer, the sanitization pipeline, and the demo server and interface.',
+    highlights: [
+      'Detects cards (with Luhn validation), phone numbers, PAN, emails, IPs, and URLs through a single detect() API.',
+      'Runs the team’s fine-tuned BERT NER model alongside the pattern layer to catch names and other free-text PII.',
+      'Replaces detected values with placeholders before anything reaches the reasoning step, and blocks the action if sanitization fails.',
+      'Demo pages walk through the live redaction, the pipeline, model training, and evaluation results.',
+    ],
+    tech: ['Python', 'Regex', 'PyTorch', 'Transformers (BERT NER)', 'HTML', 'CSS', 'JavaScript'],
+  },
+  {
     name: 'SkyVengers',
     category: 'Full-Stack',
     meta: 'WeatherGuard AI • SIH 2026',

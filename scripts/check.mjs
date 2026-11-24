@@ -3,12 +3,12 @@ import { readFile, stat } from 'node:fs/promises';
 import { projects, categories, projectsIn } from '../dist/projects.js';
 
 const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-assert.equal(projects.length, 8);
+assert.equal(projects.length, 10);
 assert.equal(new Set(projects.map(project => project.name)).size, projects.length);
 assert.equal(projectsIn('All').length, projects.length);
-assert.deepEqual(categories.slice(1).map(category => projectsIn(category).length), [3, 4, 1]);
+assert.deepEqual(categories.slice(1).map(category => projectsIn(category).length), [4, 5, 1]);
 assert.ok(projects.some(project => project.live));
-assert.ok(projects.every(project => project.repo.startsWith('https://github.com/armaankhan2905/')));
+assert.ok(projects.every(project => /^https:\/\/github\.com\/(armaankhan2905|PECathon-2026)\//.test(project.repo)));
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(([, id]) => id);
 assert.equal(new Set(ids).size, ids.length);
 for (const [, id] of html.matchAll(/aria-labelledby="([^"]+)"/g)) assert.ok(ids.includes(id));
