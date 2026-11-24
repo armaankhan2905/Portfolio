@@ -23,11 +23,11 @@ for name, file in [("Resume", "arial.ttf"), ("ResumeBold", "arialbd.ttf")]:
 pages = [
 [
 ("title", "ARMAAN KHAN"),
-("subtitle", "Backend and AI/ML Developer | B.Tech CSE (AI & ML)"),
+("subtitle", "Backend and AI/ML Developer | BE CSE (AI & ML)"),
 ("contact", "armaankhanmub@gmail.com | +91 98550 73331 | Punjab, India"),
 ("links", 'github.com/armaankhan2905 | linkedin.com/in/armaanthisside | leetcode.com/u/armaankhan2905'),
 ("section", "Education"),
-("heading", "Chitkara University, Punjab | B.Tech CSE (AI & ML) | Expected 2029 | CGPA: 9.38"),
+("heading", "Chitkara University, Punjab | BE CSE (AI & ML) | Expected 2029 | CGPA: 9.38"),
 ("section", "Technical Skills"),
 ("skill", "Languages: Python, Java, JavaScript, TypeScript, C, SQL, HTML, CSS"),
 ("skill", "Backend and databases: FastAPI, Node.js, Express, REST APIs, Supabase, SQLite, MySQL"),
