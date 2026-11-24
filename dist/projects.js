@@ -70,12 +70,12 @@ export const projects = [
     tech: ['Python', 'Regex', 'PyTorch', 'Transformers (BERT NER)', 'HTML', 'CSS', 'JavaScript'],
   },
   {
-    name: 'SkyVengers',
+    name: 'WeatherGuard',
     category: 'Full-Stack',
-    meta: 'WeatherGuard AI • SIH 2026',
+    meta: 'SIH 2026 • Team SkyVengers',
     color: '#73ddf5',
     repo: github + '/SkyVengers',
-    tagline: 'WeatherGuard AI: hyper-local severe-weather nowcasting and early-warning research prototype.',
+    tagline: 'Hyper-local severe-weather nowcasting and early-warning research prototype.',
     description: 'Built for Smart India Hackathon 2026 problem statement SIH26077, WeatherGuard AI explores 2–6 hour warnings for thunderstorms, cloudbursts, and flash floods. The command center combines weather inference, terrain-aware risk maps, explainability, and alert workflows. Demonstrations explicitly use simulated data.',
     highlights: [
       'Multi-task PyTorch ConvLSTM architecture with separate thunderstorm, cloudburst, and flood prediction heads.',

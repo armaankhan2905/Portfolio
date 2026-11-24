@@ -41,7 +41,7 @@ pages = [
 ("heading", "ClaimSaathi | The Builder's Theory 1.0 | Team Leader"),
 ("bullet", "Led a team building an insurance companion demo covering policy explanations, plan comparisons, rejected-claim evidence and complaint drafting, in English, Hindi and Hinglish."),
 ("tech", "HTML, CSS, JavaScript | github.com/armaankhan2905/ClaimSaathi"),
-("heading", "WeatherGuard AI (SkyVengers) | Smart India Hackathon 2026, SIH26077"),
+("heading", "WeatherGuard AI | Smart India Hackathon 2026, SIH26077 | Team SkyVengers"),
 ("bullet", "Built a severe-weather nowcasting prototype for 2-6 hour warnings of thunderstorms, cloudbursts and flash floods, using a multi-task PyTorch ConvLSTM."),
 ("bullet", "Added terrain-aware risk maps, explainable predictions and escalating alerts with acknowledgement tracking."),
 ("tech", "React, TypeScript, FastAPI, PyTorch, Leaflet | github.com/armaankhan2905/SkyVengers"),
