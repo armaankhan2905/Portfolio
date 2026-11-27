@@ -59,7 +59,7 @@ pages = [
 ("tech", "JavaScript, SQLite, REST APIs | github.com/armaankhan2905/CTRL-ALT-TRUST"),
 ("section", "Certifications and Achievements"),
 ("bullet", "Microsoft Certified: Azure AI Fundamentals (AI-900) and Azure Data Fundamentals (DP-900)."),
-("bullet", "Hackathons: Smart India Hackathon 2026, Graviton 2026, Hack Helix (Thapar), NexHack 2.0, PECathon 2026, The Builder's Theory 1.0."),
+("bullet", "Hackathons: DCGC Hack Sprint 2026 (Top 10), The Builder's Theory 1.0, Graviton 2026, PECathon 2026 (Top 40), Smart India Hackathon 2026, NexHack 2.0, Hack Helix (Thapar)."),
 ("bullet", "Solved 100+ LeetCode problems in arrays, strings, binary search and sliding window."),
 ],
 ]
